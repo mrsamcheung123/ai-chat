@@ -1,0 +1,19 @@
+[server]
+headless = true
+maxUploadSize = 10
+enableXsrfProtection = true
+enableCORS = true
+# The app is embedded in the local HTML page. Allow the XSRF cookie to be
+# sent to the file uploader inside that cross-origin iframe.
+xsrfCookieSameSite = "none"
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "light"
+primaryColor = "#2359b6"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f7fb"
+textColor = "#182a40"
+font = "sans serif"

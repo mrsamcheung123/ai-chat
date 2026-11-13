@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What percentage of the grade is assigned to the final project?",
+    "expected_answer": "Replace this with the answer from your actual PDF.",
+    "expected_sources": [{"document": "replace-with-your-document.pdf", "page": 1}],
+    "answerable": true
+  },
+  {
+    "question": "Who won the 2022 football World Cup?",
+    "expected_answer": "The chatbot should abstain if the collection does not contain this information.",
+    "expected_sources": [],
+    "answerable": false
+  }
+]

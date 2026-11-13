@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8501:8501"
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in .env before starting Docker}
+      RAG_THREADS: ${RAG_THREADS:-2}
+      RAG_CONTEXT_TOKENS: ${RAG_CONTEXT_TOKENS:-4096}
+      RAG_ANSWER_TOKENS: ${RAG_ANSWER_TOKENS:-256}
+      RAG_TOP_K: ${RAG_TOP_K:-4}
+      RAG_MIN_SIMILARITY: ${RAG_MIN_SIMILARITY:-0.45}
+    volumes:
+      - pdf-data:/app/data
+      - ai-models:/app/models
+      - ./assignments:/app/assignments:ro
+    # Default for an 8 GB VM. On a 4 GB VM, use a 3g limit and test a 2048-token context.
+    mem_limit: ${APP_MEMORY_LIMIT:-6g}
+    cpus: ${APP_CPUS:-2}
+
+volumes:
+  pdf-data:
+  ai-models:
